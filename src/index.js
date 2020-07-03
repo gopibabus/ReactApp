@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
-import CounterApp from './apps/CounterApp';
-import MoviesApp from './apps/MoviesApp';
+import App from './App';
 
-let rootElement = document.querySelector('#root');
-let app = (
-	<div>
-		<MoviesApp />
-		<CounterApp />
-	</div>
+ReactDOM.render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById('root')
 );
-ReactDOM.render(app, rootElement);
