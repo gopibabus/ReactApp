@@ -25,9 +25,7 @@ class Hangman extends Component {
     if guessed letters are {a,p,e}, show "app_e" for "apple"
   */
 	guessedWord() {
-		return this.state.answer
-			.split('')
-			.map((ltr) => (this.state.guessed.has(ltr) ? ltr : '_'));
+		return this.state.answer.split('').map((ltr) => (this.state.guessed.has(ltr) ? ltr : '_'));
 	}
 
 	/** handleGuest: handle a guessed letter:
@@ -45,11 +43,7 @@ class Hangman extends Component {
 	/** generateButtons: return array of letter buttons to render */
 	generateButtons() {
 		return 'abcdefghijklmnopqrstuvwxyz'.split('').map((ltr) => (
-			<button
-				value={ltr}
-				onClick={this.handleGuess}
-				disabled={this.state.guessed.has(ltr)}
-			>
+			<button value={ltr} onClick={this.handleGuess} disabled={this.state.guessed.has(ltr)}>
 				{ltr}
 			</button>
 		));
@@ -60,7 +54,7 @@ class Hangman extends Component {
 		return (
 			<div className='Hangman container text-center'>
 				<h1>Hangman</h1>
-				<img src={this.props.images[this.state.nWrong]} />
+				<img alt='hangman' src={this.props.images[this.state.nWrong]} />
 				<p className='Hangman-word'>{this.guessedWord()}</p>
 				<p className='Hangman-btns'>{this.generateButtons()}</p>
 			</div>
